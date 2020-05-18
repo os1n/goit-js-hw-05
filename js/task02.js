@@ -1,6 +1,12 @@
 // ===--- Task Description
 
-// Напиши функцию countProps(obj), считающую кол-во свойств в объекте. Функция возвращает число - количество свойств.
+// Напиши класс User для создания пользователя со следующим свойствами:
+
+// name - строка
+// age - число
+// followers - число
+// Добавь метод getInfo(), который, выводит строку: User ${имя} is ${возраст} years old and has ${кол-во фоловеров} followers
+
 
 // ===--- Task Description END
 
@@ -8,17 +14,31 @@
 // ====---- Task 02 Start
 console.log("TASK 02");
 
-const countProps = function (obj) {
-  // твой код
-  // const objLength = Object.keys(obj).length;
-  return Object.keys(obj).length; // ?- return q-ty of keys array
-};
+class User {
+  // Static helloStart = 'User says hello';
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(countProps({})); // 0
+  constructor (name, age, followers) {
+    this.name = name;
+    this.age = age;
+    this.followers = followers;
+  }
 
-console.log(countProps({ name: "Mango", age: 2 })); // 2
+  getInfo() {
+    console.log(`User ${this.name} is ${this.age} years old and has ${this.followers} followers`);
+  }
 
-console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 })); // 3
+}
+
+const mango = new User('Mango', 2, 20);
+
+console.log(mango);
+
+mango.getInfo(); // User Mango is 2 years old and has 20 followers
+
+const poly = new User(
+  'Poly',
+  3,
+  17,
+);
+
+poly.getInfo(); // User Poly is 3 years old and has 17 followers
