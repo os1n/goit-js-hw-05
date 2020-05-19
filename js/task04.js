@@ -1,36 +1,53 @@
 // ===--- Task Description
-// Напиши функцию countTotalSalary(employees) принимающую объект зарплат. Функция считает общую сумму запрплаты работников и возращает ее. Каждое поле объекта, передаваемого в функцию, имеет вид "имя":"зарплата".
+// Напиши класс StringBuilder. На вход он получает один параметр - строку, которую записывает в свойство _value.
+
+// Добавь классу следующий функционал:
+
+// Геттер value - возвращает текущее значение поля _value
+// Метод append(str) - получает парметр str (строку) и добавляет ее в !конец _value
+// Метод prepend(str) - получает парметр str (строку) и добавляет ее в !начало value
+// Метод pad(str) - получает парметр str (строку) и добавляет ее в начало и в конец _value
 
 // ====---- Task 04 Start
 console.log("TASK 04");
 
-const countTotalSalary = function (employees) {
-  // твой код
-  let sum = 0;
-  let sallaryArr = Object.values(employees); // new array of the sallaries
-  for (let salary of sallaryArr) {
-    sum += salary; // increment sum
+class StringBuilder {
+ // const value = [];
+  constructor (_value) {
+    this.value = _value;
+    console.log(this.value);
   }
-  return sum; //return sum
-};
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(countTotalSalary({})); // 0
+  getstring() {
+    return this.value;
+  }
 
-console.log(
-  countTotalSalary({
-    mango: 100,
-    poly: 150,
-    alfred: 80,
-  })
-); // 330
+  get () {
+    console.log(this.value);
+  }
 
-console.log(
-  countTotalSalary({
-    kiwi: 200,
-    lux: 50,
-    chelsy: 150,
-  })
-); // 400
+  append(str) {
+    this.value = this.value + str;
+  }
+
+  prepend(str) {
+    this.value = str + this.value;
+  }
+
+  pad(str) {
+    this.value = str + this.value;
+    this.value = this.value + str;
+  }
+
+}
+
+const builder = new StringBuilder('.');
+
+builder.append('^');
+console.log(builder.value); // '.^'
+
+builder.prepend('^');
+console.log(builder.value); // '^.^'
+
+builder.pad('=');
+console.log(builder.value); // '=^.^='
