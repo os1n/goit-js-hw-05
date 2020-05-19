@@ -12,8 +12,8 @@
 console.log("TASK 04");
 
 class StringBuilder {
- // const value = [];
-  constructor (_value) {
+  // const value = [];
+  constructor(_value) {
     this.value = _value;
     console.log(this.value);
   }
@@ -22,7 +22,7 @@ class StringBuilder {
     return this.value;
   }
 
-  get () {
+  get() {
     console.log(this.value);
   }
 
@@ -38,16 +38,15 @@ class StringBuilder {
     this.value = str + this.value;
     this.value = this.value + str;
   }
-
 }
 
-const builder = new StringBuilder('.');
+const builder = new StringBuilder(".");
 
-builder.append('^');
+builder.append("^");
 console.log(builder.value); // '.^'
 
-builder.prepend('^');
+builder.prepend("^");
 console.log(builder.value); // '^.^'
 
-builder.pad('=');
+builder.pad("=");
 console.log(builder.value); // '=^.^='
